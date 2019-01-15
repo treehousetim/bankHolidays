@@ -59,6 +59,7 @@ class usa extends holiday
 			'date'		=> $this->christmasDay(),
 			'desc'		=> 'Christmas Day' ];
 
+			return $dates;
 	}
 	//------------------------------------------------------------------------
 	public function martinLutherKingJrDay() : string

@@ -64,7 +64,7 @@ class canada extends holiday
 			'date'		=> $this->boxingDay(),
 			'desc'		=> 'Boxing Day' ];
 
-
+		return $dates;
 	}
 	//------------------------------------------------------------------------
 	public function memorialDay() : string
