@@ -1,7 +1,7 @@
 # bankHolidays
 Bank Holiday Date calculations in PHP for United States of America and Canada.
 
-##Note
+## Note
 Canadian bank holidays are difficult to find authoritative information for.  I've done the best I can with current information.  Contact me if you find authoritative sources of the rules to follow (not just a list of dates). 
 
 
