@@ -7,7 +7,7 @@ Canadian bank holidays are difficult to find authoritative information for.  I'v
 
 ## Usage
 
-`composer require treehousetim/bankHolidays`
+`composer require treehousetim/bank-holidays`
 
 ```
 <?php
