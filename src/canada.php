@@ -11,7 +11,7 @@ class canada extends holiday
 
 		$dates[] = [
 			'country'	=> 'CA',
-			'date'		=> $this->newYearDay(),
+			'date'		=> $this->newYearsDay(),
 			'desc'		=> 'New Year\'s Day' ];
 
 		$dates[] = [
