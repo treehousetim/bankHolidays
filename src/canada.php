@@ -2,53 +2,113 @@
 
 class canada extends holiday
 {
-	public function newYear()
+	public function getAsArray() : array
 	{
-		return $this->satFriSunMon( $this->year . '/01/01' );
+		if( $this->year === null )
+		{
+			throw new \Exception( 'You must set year before getting an array' );
+		}
+
+		$dates[] = [
+			'country'	=> 'CA',
+			'date'		=> $this->newYearDay(),
+			'desc'		=> 'New Year\'s Day' ];
+
+		$dates[] = [
+			'country'	=> 'CA',
+			'date'		=> $this->familyDay(),
+			'desc'		=> 'Family Day' ];
+
+		$dates[] = [
+			'country'	=> 'CA',
+			'date'		=> $this->goodFriday(),
+			'desc'		=> 'Good Friday' ];
+
+		$dates[] = [
+			'country'	=> 'CA',
+			'date'		=> $this->victoriaDay(),
+			'desc'		=> 'Victoria Day' ];
+
+		$dates[] = [
+			'country'	=> 'CA',
+			'date'		=> $this->canadaDay(),
+			'desc'		=> 'Candada Day' ];
+
+		$dates[] = [
+			'country'	=> 'CA',
+			'date'		=> $this->civicHoliday(),
+			'desc'		=> 'Civic Holiday' ];
+
+		$dates[] = [
+			'country'	=> 'CA',
+			'date'		=> $this->laborDay(),
+			'desc'		=> 'Labor Day' ];
+
+		$dates[] = [
+			'country'	=> 'CA',
+			'date'		=> $this->thanksgivingDay(),
+			'desc'		=> 'Thanksgiving Day' ];
+
+		$dates[] = [
+			'country'	=> 'CA',
+			'date'		=> $this->remembranceDay(),
+			'desc'		=> 'Remembrance Day' ];
+
+		$dates[] = [
+			'country'	=> 'CA',
+			'date'		=> $this->christmasDay(),
+			'desc'		=> 'Christmas Day' ];
+
+		$dates[] = [
+			'country'	=> 'CA',
+			'date'		=> $this->boxingDay(),
+			'desc'		=> 'Boxing Day' ];
+
+
 	}
 	//------------------------------------------------------------------------
-	public function memorialDay()
+	public function memorialDay() : string
 	{
 		return date( 'Y/m/d', strtotime( 'last monday of may ' . $this->year ) );
 	}
 	//------------------------------------------------------------------------
-	public function independenceDay()
+	public function civicHoliday() : string
 	{
-		return $this->satFriSunMon( $this->year . '/07/04' );
+		return $this->dayOfWeekMonthYear( '1', 'monday', '08/01' );
 	}
 	//------------------------------------------------------------------------
-	public function laborDay()
+	public function laborDay() : string
 	{
 		return $this->dayOfWeekMonthYear( '1', 'monday', '09/01' );
 	}
 	//------------------------------------------------------------------------
-	public function familyDay()
+	public function familyDay() : string
 	{
 		return $this->dayOfWeekMonthYear( '3', 'mondays', '02/01' );
 	}
 	//------------------------------------------------------------------------
-	public function remembranceDay()
+	public function remembranceDay() : string
 	{
 		return $this->satFriSunMon( $this->year . '/11/11' );
 	}
 	//------------------------------------------------------------------------
-	public function thanksgivingDay()
+	public function thanksgivingDay() : string
 	{
 		return $this->dayOfWeekMonthYear( '2', 'mondays', '10/01' );
 	}
 	//------------------------------------------------------------------------
-	public function christmasDay()
+	public function christmasDay() : string
 	{
 		return $this->satFriSunMon( $this->year . '/12/25' );
 	}
 
 	//------------------------------------------------------------------------
-	public function canadaDay()
+	public function canadaDay() : string
 	{
 		return $this->satFriSunMon( $this->year . '/07/01' );
 	}
 	//------------------------------------------------------------------------
-	public function boxingDay()
+	public function boxingDay() : string
 	{
 		$date = $this->year . '/12/26';
 
@@ -71,7 +131,7 @@ class canada extends holiday
 		return $date;
 	}
 	//------------------------------------------------------------------------
-	public function victoriaDay()
+	public function victoriaDay() : string
 	{
 		$ts = strtotime( 'last monday of may ' . $this->year );
 		$day = date( 'd', $ts );
@@ -79,9 +139,11 @@ class canada extends holiday
 		{
 			return date( 'Y/m/d', $ts );
 		}
+
+		return $this->year . '/05/' . ($day-7);
 	}
 	//------------------------------------------------------------------------
-	public function satFriSunMon( $date )
+	public function satFriSunMon( $date ) : string
 	{
 		$dow = date( 'w', strtotime( $date ) );
 
@@ -101,7 +163,7 @@ class canada extends holiday
 		return $date;
 	}
 	//------------------------------------------------------------------------
-	public function dayOfWeekMonthYear( $day, $weekday, $month )
+	public function dayOfWeekMonthYear( $day, $weekday, $month ) : string
 	{
 		$time = $day . ' ' . $weekday . ' ' . $this->year . '/' . $month;
 		//echo $time . PHP_EOL;

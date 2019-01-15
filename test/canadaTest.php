@@ -23,17 +23,17 @@ final class canadaTest extends TestCase
 	{
 		$this->assertEquals(
 			'2021/12/31',
-			$this->holiday->year( 2022 )->newYear()
+			$this->holiday->year( 2022 )->newYearsDay()
 		);
 
 		$this->assertEquals(
 			'2019/01/01',
-			$this->holiday->year( 2019 )->newYear()
+			$this->holiday->year( 2019 )->newYearsDay()
 		);
 
 		$this->assertEquals(
 			'2023/01/02',
-			$this->holiday->year( 2023 )->newYear()
+			$this->holiday->year( 2023 )->newYearsDay()
 		);
 	}
 	//------------------------------------------------------------------------
@@ -55,56 +55,23 @@ final class canadaTest extends TestCase
 		);
 	}
 	//------------------------------------------------------------------------
-	public function testMemorialDay()
+	public function testVictoriaDay()
 	{
 		$this->assertEquals(
-			'2019/05/27',
-			$this->holiday->year( 2019 )->memorialDay()
+			'2019/05/20',
+			$this->holiday->year( 2019 )->victoriaDay()
 		);
 
 		$this->assertEquals(
-			'2033/05/30',
-			$this->holiday->year( 2033 )->memorialDay()
+			'2021/05/24',
+			$this->holiday->year( 2021 )->victoriaDay()
 		);
 
 		$this->assertEquals(
-			'2032/05/31',
-			$this->holiday->year( 2032 )->memorialDay()
+			'2031/05/19',
+			$this->holiday->year( 2031 )->victoriaDay()
 		);
 		
-	}
-	//------------------------------------------------------------------------
-	public function testIndependenceDay()
-	{
-		$this->assertEquals(
-			'2019/07/04',
-			$this->holiday->year( 2019 )->independenceDay()
-		);
-
-		$this->assertEquals(
-			'2020/07/03',
-			$this->holiday->year( 2020 )->independenceDay()
-		);
-
-		$this->assertEquals(
-			'2021/07/05',
-			$this->holiday->year( 2021 )->independenceDay()
-		);
-
-		$this->assertEquals(
-			'2033/07/04',
-			$this->holiday->year( 2033 )->independenceDay()
-		);
-
-		$this->assertEquals(
-			'2031/07/04',
-			$this->holiday->year( 2031 )->independenceDay()
-		);
-
-		$this->assertEquals(
-			'2032/07/05',
-			$this->holiday->year( 2032 )->independenceDay()
-		);
 	}
 	//------------------------------------------------------------------------
 	public function testLaborDay()

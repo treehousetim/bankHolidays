@@ -23,17 +23,17 @@ final class usaTest extends TestCase
 	{
 		$this->assertEquals(
 			'2021/12/31',
-			$this->holiday->year( 2022 )->newYear()
+			$this->holiday->year( 2022 )->newYearsDay()
 		);
 
 		$this->assertEquals(
 			'2019/01/01',
-			$this->holiday->year( 2019 )->newYear()
+			$this->holiday->year( 2019 )->newYearsDay()
 		);
 
 		$this->assertEquals(
 			'2023/01/02',
-			$this->holiday->year( 2023 )->newYear()
+			$this->holiday->year( 2023 )->newYearsDay()
 		);
 	}
 	//------------------------------------------------------------------------
