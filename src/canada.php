@@ -2,74 +2,86 @@
 
 class canada extends holiday
 {
+	public function getObservedAsArray() : array
+	{
+		return $this->getAsArray();
+	}
+	//------------------------------------------------------------------------
 	public function getAsArray() : array
 	{
-		if( $this->year === null )
-		{
-			throw new \Exception( 'You must set year before getting an array' );
-		}
-
-		$dates[] = [
-			'country'	=> 'CA',
-			'date'		=> $this->newYearsDay(),
-			'desc'		=> 'New Year\'s Day' ];
-
-		$dates[] = [
-			'country'	=> 'CA',
-			'date'		=> $this->familyDay(),
-			'desc'		=> 'Family Day' ];
-
-		$dates[] = [
-			'country'	=> 'CA',
-			'date'		=> $this->goodFriday(),
-			'desc'		=> 'Good Friday' ];
-
-		$dates[] = [
-			'country'	=> 'CA',
-			'date'		=> $this->victoriaDay(),
-			'desc'		=> 'Victoria Day' ];
-
-		$dates[] = [
-			'country'	=> 'CA',
-			'date'		=> $this->canadaDay(),
-			'desc'		=> 'Candada Day' ];
-
-		$dates[] = [
-			'country'	=> 'CA',
-			'date'		=> $this->civicHoliday(),
-			'desc'		=> 'Civic Holiday' ];
-
-		$dates[] = [
-			'country'	=> 'CA',
-			'date'		=> $this->laborDay(),
-			'desc'		=> 'Labor Day' ];
-
-		$dates[] = [
-			'country'	=> 'CA',
-			'date'		=> $this->thanksgivingDay(),
-			'desc'		=> 'Thanksgiving Day' ];
-
-		$dates[] = [
-			'country'	=> 'CA',
-			'date'		=> $this->remembranceDay(),
-			'desc'		=> 'Remembrance Day' ];
-
-		$dates[] = [
-			'country'	=> 'CA',
-			'date'		=> $this->christmasDay(),
-			'desc'		=> 'Christmas Day' ];
-
-		$dates[] = [
-			'country'	=> 'CA',
-			'date'		=> $this->boxingDay(),
-			'desc'		=> 'Boxing Day' ];
+		$this->mustHaveYear();
+		$dates = [];
+		$dates[] = $this->getNewYearsDayDetail();
+		$dates[] = $this->getFamilyDayDetail();
+		$dates[] = $this->getGoodFridayDetail();
+		$dates[] = $this->getEasterMondayDetail();
+		$dates[] = $this->getVictoriaDayDetail();
+		$dates[] = $this->getCanadaDayDetail();
+		$dates[] = $this->getCivicHolidayDetail();
+		$dates[] = $this->getLaborDayDetail();
+		$dates[] = $this->getThanksgivingDayDetail();
+		$dates[] = $this->getRemembranceDayDetail();
+		$dates[] = $this->getChristmasDayDetail();
+		$dates[] = $this->getBoxingDayDetail();
+		
 
 		return $dates;
 	}
 	//------------------------------------------------------------------------
-	public function memorialDay() : string
+	public function getNewYearsDayDetail()
 	{
-		return date( 'Y/m/d', strtotime( 'last monday of may ' . $this->year ) );
+		return [
+			'country'	=> 'CA',
+			'observed'	=> true,
+			'date'		=> $this->newYearsDay(),
+			'desc'		=> 'New Year\'s Day'
+		];
+	}
+	//------------------------------------------------------------------------
+	public function newYearsDay() : string
+	{
+		return $this->satFriSunMon( $this->year . '/01/01' );
+	}
+	//------------------------------------------------------------------------
+	public function getGoodFridayDetail()
+	{
+		return [
+			'country'	=> 'CA',
+			'observed'	=> true,
+			'date'		=> $this->goodFriday(),
+			'desc'		=> 'Good Friday'
+		];
+	}
+	//------------------------------------------------------------------------
+	public function goodFriday() : string
+	{
+		return parent::goodFriday();
+	}
+	//------------------------------------------------------------------------
+	public function getEasterMondayDetail()
+	{
+		return [
+			'country'	=> 'CA',
+			'observed'	=> true,
+			'date'		=> $this->easterMonday(),
+			'desc'		=> 'Easter Monday'
+		];
+	}
+	//------------------------------------------------------------------------
+	public function easterMonday() : string
+	{
+		return $this->sunMon( date( 'Y/m/d', easter_date( $this->year ) ) );
+	}
+	//------------------------------------------------------------------------
+	public function getCivicHolidayDetail()
+	{
+		return [
+			'country'	=> 'CA',
+			'observed'	=> true,
+			'date'		=> $this->civicHoliday(),
+			'desc'		=> 'Civic Holiday'
+		];
+		
 	}
 	//------------------------------------------------------------------------
 	public function civicHoliday() : string
@@ -77,9 +89,29 @@ class canada extends holiday
 		return $this->dayOfWeekMonthYear( '1', 'monday', '08/01' );
 	}
 	//------------------------------------------------------------------------
+	public function getLaborDayDetail()
+	{
+		return [
+			'country'	=> 'CA',
+			'observed'	=> true,
+			'date'		=> $this->laborDay(),
+			'desc'		=> 'Labor Day'
+		];
+	}
+	//------------------------------------------------------------------------
 	public function laborDay() : string
 	{
 		return $this->dayOfWeekMonthYear( '1', 'monday', '09/01' );
+	}
+	//------------------------------------------------------------------------
+	public function getFamilyDayDetail()
+	{
+		return [
+			'country'	=> 'CA',
+			'observed'	=> true,
+			'date'		=> $this->familyDay(),
+			'desc'		=> 'Family Day'
+		];
 	}
 	//------------------------------------------------------------------------
 	public function familyDay() : string
@@ -87,9 +119,29 @@ class canada extends holiday
 		return $this->dayOfWeekMonthYear( '3', 'mondays', '02/01' );
 	}
 	//------------------------------------------------------------------------
+	public function getRemembranceDayDetail()
+	{
+		return [
+			'country'	=> 'CA',
+			'observed'	=> true,
+			'date'		=> $this->remembranceDay(),
+			'desc'		=> 'Remembrance Day'
+		];
+	}
+	//------------------------------------------------------------------------
 	public function remembranceDay() : string
 	{
 		return $this->satFriSunMon( $this->year . '/11/11' );
+	}
+	//------------------------------------------------------------------------
+	public function getThanksgivingDayDetail()
+	{
+		return [
+			'country'	=> 'CA',
+			'observed'	=> true,
+			'date'		=> $this->thanksgivingDay(),
+			'desc'		=> 'Thanksgiving Day'
+		];
 	}
 	//------------------------------------------------------------------------
 	public function thanksgivingDay() : string
@@ -97,15 +149,44 @@ class canada extends holiday
 		return $this->dayOfWeekMonthYear( '2', 'mondays', '10/01' );
 	}
 	//------------------------------------------------------------------------
+	public function getChristmasDayDetail()
+	{
+		return [
+			'country'	=> 'CA',
+			'observed'	=> true,
+			'date'		=> $this->christmasDay(),
+			'desc'		=> 'Christmas Day'
+		];
+	}
+	//------------------------------------------------------------------------
 	public function christmasDay() : string
 	{
 		return $this->satFriSunMon( $this->year . '/12/25' );
 	}
-
+	//------------------------------------------------------------------------
+	public function getCanadaDayDetail() : array
+	{
+		return [
+			'country'	=> 'CA',
+			'observed'	=> true,
+			'date'		=> $this->canadaDay(),
+			'desc'		=> 'Candada Day'
+		];
+	}
 	//------------------------------------------------------------------------
 	public function canadaDay() : string
 	{
 		return $this->satFriSunMon( $this->year . '/07/01' );
+	}
+	//------------------------------------------------------------------------
+	public function getBoxingDayDetail()
+	{
+		return [
+			'country'	=> 'CA',
+			'observed'	=> true,
+			'date'		=> $this->boxingDay(),
+			'desc'		=> 'Boxing Day'
+		];
 	}
 	//------------------------------------------------------------------------
 	public function boxingDay() : string
@@ -131,6 +212,16 @@ class canada extends holiday
 		return $date;
 	}
 	//------------------------------------------------------------------------
+	public function getVictoriaDayDetail()
+	{
+		return [
+			'country'	=> 'CA',
+			'observed'	=> true,
+			'date'		=> $this->victoriaDay(),
+			'desc'		=> 'Victoria Day'
+		];
+	}
+	//------------------------------------------------------------------------
 	public function victoriaDay() : string
 	{
 		$ts = strtotime( 'last monday of may ' . $this->year );
@@ -141,34 +232,5 @@ class canada extends holiday
 		}
 
 		return $this->year . '/05/' . ($day-7);
-	}
-	//------------------------------------------------------------------------
-	public function satFriSunMon( $date ) : string
-	{
-		$dow = date( 'w', strtotime( $date ) );
-
-		if( $dow == 0 )
-		{
-			// on a sunday, observe on monday after
-			$date = date( 'Y/m/d', strtotime( $date . ' +1 day' ) );
-			
-		}
-		elseif( $dow == 6 )
-		{
-			// on a saturday, observe on friday before
-			$date = date( 'Y/m/d', strtotime( $date . ' -1 day' ) );
-			
-		}
-
-		return $date;
-	}
-	//------------------------------------------------------------------------
-	public function dayOfWeekMonthYear( $day, $weekday, $month ) : string
-	{
-		$time = $day . ' ' . $weekday . ' ' . $this->year . '/' . $month;
-		//echo $time . PHP_EOL;
-		$ret = date( 'Y/m/d', strtotime( $time ) );
-		//echo $ret . PHP_EOL . PHP_EOL;
-		return $ret;
 	}
 }

@@ -1,8 +1,11 @@
 <?php namespace treehousetim\bankHolidays;
 
-class holiday
+abstract class holiday
 {
 	protected $year = null;
+
+	abstract public function getAsArray() : array;
+	abstract public function getObservedAsArray() : array;
 
 	public function __construct( $year = null )
 	{
@@ -13,11 +16,7 @@ class holiday
 
 		$this->year = (int)$year;
 	}
-	//------------------------------------------------------------------------
-	public function newYearsDay() : string
-	{
-		return $this->satFriSunMon( $this->year . '/01/01' );
-	}
+
 	//------------------------------------------------------------------------
 	public function goodFriday() : string
 	{
@@ -29,9 +28,12 @@ class holiday
 		return date( 'Y/m/d', easter_date( $this->year ) );
 	}
 	//------------------------------------------------------------------------
-	public function christmasDay() : string
+	public function mustHaveYear()
 	{
-		return $this->satFriSunMon( $this->year . '/12/25' );
+		if( $this->year === null )
+		{
+			throw new \Exception( 'Year cannot be null' );
+		}
 	}
 	//------------------------------------------------------------------------
 	public function year( $year ) : holiday
@@ -53,15 +55,13 @@ class holiday
 	//------------------------------------------------------------------------
 	public function satFriSunMon( $date ) : string
 	{
-		$dow = date( 'w', strtotime( $date ) );
-
-		if( $dow == 0 )
+		if( $this->isSun( $date ) )
 		{
 			// on a sunday, observe on monday after
 			$date = date( 'Y/m/d', strtotime( $date . ' +1 day' ) );
 			
 		}
-		elseif( $dow == 6 )
+		elseif( $this->isSat( $date ) )
 		{
 			// on a saturday, observe on friday before
 			$date = date( 'Y/m/d', strtotime( $date . ' -1 day' ) );
@@ -69,6 +69,27 @@ class holiday
 		}
 
 		return $date;
+	}
+	//------------------------------------------------------------------------
+	public function sunMon( $date ) : string
+	{
+		if( $this->isSun( $date ) )
+		{
+			// on a sunday, observe on monday after
+			$date = date( 'Y/m/d', strtotime( $date . ' +1 day' ) );
+		}
+
+		return $date;
+	}
+	//------------------------------------------------------------------------
+	public function isSun( $date ) : bool
+	{
+		return  date( 'w', strtotime( $date ) ) == 0;
+	}
+	//------------------------------------------------------------------------
+	public function isSat( $date ) : bool
+	{
+		return date( 'w', strtotime( $date ) ) == 6;
 	}
 	//------------------------------------------------------------------------
 	public function dayOfWeekMonthYear( $day, $weekday, $month ) : string

@@ -224,19 +224,76 @@ final class canadaTest extends TestCase
 	public function testEaster()
 	{
 		$this->assertEquals(
-			'2019/04/21',
-			$this->holiday->year( 2019 )->easterDay()
+			'2019/04/22',
+			$this->holiday->year( 2019 )->easterMonday()
 		);
 
 		$this->assertEquals(
-			'2008/03/23',
-			$this->holiday->year( 2008 )->easterDay()
+			'2016/03/28',
+			$this->holiday->year( 2016 )->easterMonday()
 		);
 
 		$this->assertEquals(
-			'2009/04/12',
-			$this->holiday->year( 2009 )->easterDay()
+			'2009/04/13',
+			$this->holiday->year( 2009 )->easterMonday()
 		);
+
+		$this->assertEquals(
+			'2022/04/18',
+			$this->holiday->year( 2022 )->easterMonday()
+		);
+	}
+	//------------------------------------------------------------------------
+	public function testGetAsArray()
+	{
+		$this->holiday = $this->holiday->year( 2021 );
+		$ar = $this->holiday->getAsArray();
+
+		$this->assertEquals(
+			12,
+			count( $ar ),
+			'Detail array has 12 entries'
+		);
+	}
+	//------------------------------------------------------------------------
+	public function testGetObservedAsArray()
+	{
+		$this->holiday = $this->holiday->year( 2021 );
+		$ar = $this->holiday->getObservedAsArray();
+
+		$this->assertEquals(
+			12,
+			count( $ar ),
+			'Detail array has 12 entries'
+		);
+
+		$this->holiday = $this->holiday->year( 2022 );
+		$ar = $this->holiday->getObservedAsArray();
+
+		$this->assertEquals(
+			12,
+			count( $ar ),
+			'Detail array has 12 entries'
+		);
+	}
+	//------------------------------------------------------------------------
+	public function testAllArrayStruct()
+	{
+		$this->holiday = $this->holiday->year( 2021 );
+		$ar = $this->holiday->getObservedAsArray();
+
+		foreach( $ar as $item )
+		{
+			$this->assertEquals( 4, count( $item ), ($item['date'] ?? 'unknown') . ' has only 4 entries' );
+			$this->assertNotEmpty( $item['desc'], $item['date'] . ' must have a description' );
+			$this->assertNotEmpty( $item['date'], $item['desc'] . ' must have a date' );
+			$this->assertEquals( $item['country'], 'CA', $item['date'] . ' must be for Canada [CA]' );
+
+			$this->assertArrayHasKey( 'desc', 		$item, 'has desc' );
+			$this->assertArrayHasKey( 'date', 		$item, 'has date' );
+			$this->assertArrayHasKey( 'observed',	$item, 'has observed' );
+			$this->assertArrayHasKey( 'country',	$item, 'has country' );
+		}
 	}
 }
 
