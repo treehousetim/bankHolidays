@@ -20,8 +20,6 @@ jobs:
     - name: Use PHP 7.1
       run: |
         sudo update-alternatives --set php /usr/bin/php7.1
-        php -v
-
 
     - name: Validate composer.json and composer.lock
       run: composer validate

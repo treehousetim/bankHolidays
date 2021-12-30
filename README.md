@@ -8,11 +8,40 @@ Bank Holiday Date calculations in PHP for United States of America and Canada.
 `composer require treehousetim/bank-holidays`
 
 ## Canada
-Canadian bank holidays are difficult to find authoritative information for.  I've done the best I can with current information.  Contact me if you find authoritative sources of the rules to follow (not just a list of dates). 
+Canadian bank holidays are difficult to find authoritative information for.  I've done the best I can with current information.  Open an issue if you find authoritative sources of the rules to follow (not just a list of dates). 
+
+### List of Canadian Bank Holidays
+* New Year's Day;
+* Family Day;
+* Good Friday;
+* Easter Monday;
+* Victoria Day;
+* Canada Day;
+* Civic Holiday;
+* Labor Day;
+* Thanksgiving Day;
+* Remembrance Day;
+* Christmas Day;
+* Boxing Day;
 
 ## United States
 Not all holidays are observed as bank holidays in the United States.
 If a holiday falls on a Saturday, it is not observed. If it falls on a Sunday it is observed on Monday.
+
+### List of US Bank Holidays
+
+* New Year's Day
+* Martin Luther King Jr. Day
+* Presidents' Day
+* Memorial Day
+* Juneteenth
+* Independence Day
+* Labor Day
+* Columbus Day
+* Veterans Day
+* Thanksgiving Day
+* Christmas Day
+
 
 ## Getting Detail
 Both `usa` and `canada` classes implement the following abstract methods.
