@@ -21,6 +21,7 @@ jobs:
       run: |
         sudo apt-get update
         sudo apt-get install php7.3
+        php -v
 
 
     - name: Validate composer.json and composer.lock
@@ -37,7 +38,7 @@ jobs:
 
     - name: Install dependencies
       if: steps.composer-cache.outputs.cache-hit != 'true'
-      run: composer install --prefer-dist --no-progress --no-suggest
+      run: composer install --prefer-dist
 
     - name: Run test suite
       run: composer run-script test
