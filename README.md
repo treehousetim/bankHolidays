@@ -1,4 +1,6 @@
 # bankHolidays
+![Unit Tests](https://github.com/treehousetim/bankHolidays/workflows/Unit%20Tests/badge.svg)
+
 Bank Holiday Date calculations in PHP for United States of America and Canada.
 
 ## Installing
