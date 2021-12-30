@@ -1,7 +1,7 @@
 {
     "name": "treehousetim/bank-holidays",
     "description": "A simple, zero-dependency, bank holiday calculator for PHP.",
-    "type": "project",
+    "type": "library",
     "license": "MIT",
     "authors": [
         {
