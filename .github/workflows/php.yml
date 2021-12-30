@@ -20,13 +20,9 @@ jobs:
     - name: Install PHP 7.3
       run: |
         sudo apt-get update
-        sudo apt-get remove php8.1
-        sudo apt-get remove php8.1-cli
-        sudo apt-get remove php8.0
-        sudo apt-get remove php8.0-cli
+        sudo apt-get purge 'php*'
         sudo apt-get install php7.3
         sudo apt-get install php7.3-cli
-        php7 -v
         php -v
 
 
