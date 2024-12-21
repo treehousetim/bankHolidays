@@ -6,10 +6,16 @@ use PHPUnit\Framework\TestCase;
 final class canadaTest extends TestCase
 {
 	public $holiday;
-	protected function setUp()
+	public function __construct(string $name)
 	{
+		parent::__construct($name);
 		$this->holiday = new \treehousetim\bankHolidays\canada();
 	}
+	//------------------------------------------------------------------------
+	// protected function setUp()
+	// {
+	// 	$this->holiday = new \treehousetim\bankHolidays\canada();
+	// }
 	//------------------------------------------------------------------------
 	public function testInstance()
 	{

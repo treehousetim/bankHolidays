@@ -6,8 +6,9 @@ use PHPUnit\Framework\TestCase;
 final class usaTest extends TestCase
 {
 	public $holiday;
-	protected function setUp()
+	public function __construct(string $name)
 	{
+		parent::__construct($name);
 		$this->holiday = new \treehousetim\bankHolidays\usa();
 	}
 	//------------------------------------------------------------------------
