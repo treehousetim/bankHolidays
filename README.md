@@ -1,6 +1,10 @@
 # bankHolidays
 ![Unit Tests](https://github.com/treehousetim/bankHolidays/workflows/Unit%20Tests/badge.svg)
 
+## Current Version
+
+1.0.2
+
 Bank Holiday Date calculations in PHP for United States of America and Canada.
 
 ## Installing
@@ -112,4 +116,5 @@ There are no dependencies, but PHPUnit is installed with composer.
 
 1. `composer install`
 2. `composer test`
+
 
