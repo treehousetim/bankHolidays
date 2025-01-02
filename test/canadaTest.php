@@ -12,11 +12,6 @@ final class canadaTest extends TestCase
 		$this->holiday = new \treehousetim\bankHolidays\canada();
 	}
 	//------------------------------------------------------------------------
-	// protected function setUp()
-	// {
-	// 	$this->holiday = new \treehousetim\bankHolidays\canada();
-	// }
-	//------------------------------------------------------------------------
 	public function testInstance()
 	{
 		$this->assertInstanceOf(

@@ -11,7 +11,7 @@ jobs:
     strategy:
       matrix:
         operating-system: ['ubuntu-24.04']
-        php-versions: ['8.2', '8.4']
+        php-versions: ['7.0','8.2', '8.4']
         phpunit-versions: ['latest']
     runs-on: ${{ matrix.operating-system }}
     steps:
