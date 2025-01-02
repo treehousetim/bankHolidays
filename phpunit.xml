@@ -5,9 +5,6 @@
 	executionOrder="random"
 	bootstrap="./test/bootstrap.php"
 	colors="true"
-	convertErrorsToExceptions="true"
-	convertNoticesToExceptions="true"
-	convertWarningsToExceptions="true"
 	processIsolation="false"
 	stopOnFailure="false"
 	failOnWarning="true"
@@ -15,10 +12,10 @@
 	failOnEmptyTestSuite="true"
 	beStrictAboutOutputDuringTests="true"
 	verbose= "true"
-	>
-<testsuites>
-	<testsuite name="Test Suite">
-		<directory suffix="Test.php">./test/</directory>
-	</testsuite>
- </testsuites>
+	cacheDirectory=".phpunit.cache" >
+	<testsuites>
+		<testsuite name="Test Suite">
+			<directory suffix="Test.php">./test/</directory>
+		</testsuite>
+	</testsuites>
 </phpunit>
