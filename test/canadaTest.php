@@ -3,14 +3,10 @@
 use \treehousetim\bankHolidays;
 use PHPUnit\Framework\TestCase;
 
-final class canadaTest extends TestCase
+class canadaTests extends TestCase
 {
 	public $holiday;
-	public function __construct(string $name)
-	{
-		parent::__construct($name);
-		$this->holiday = new \treehousetim\bankHolidays\canada();
-	}
+
 	//------------------------------------------------------------------------
 	public function testInstance()
 	{
@@ -298,3 +294,23 @@ final class canadaTest extends TestCase
 	}
 }
 
+
+
+if (version_compare(PHP_VERSION, '8.0.0', '>=')) {
+	final class canadaTest extends canadaTests {
+		public function __construct(string $name=null)
+		{
+			parent::__construct($name);
+			$this->holiday = new \treehousetim\bankHolidays\canada();
+		}
+	}
+} else {
+	final class canadaTest extends canadaTests {
+		public function __construct(string $name)
+		{
+			parent::__construct($name);
+			$this->holiday = new \treehousetim\bankHolidays\canada();
+		}
+
+	}
+}
