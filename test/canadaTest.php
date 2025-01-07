@@ -306,7 +306,7 @@ if (version_compare(PHP_VERSION, '8.0.0', '>=')) {
 	}
 } else {
 	final class canadaTest extends canadaTests {
-		public function __construct(string $name)
+		public function __construct(string $name = '')
 		{
 			parent::__construct($name);
 			$this->holiday = new \treehousetim\bankHolidays\canada();
