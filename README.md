@@ -118,3 +118,100 @@ There are no dependencies, but PHPUnit is installed with composer.
 2. `composer test`
 
 
+
+## Library
+
+## How to use
+
+### Countries
+
+Instantiate the country class as you need.
+
+```
+$usa = new \treehousetim\bankHolidays\usa();
+$ca =  new \treehousetim\bankHolidays\canada();
+
+## Detail Array
+
+There are two ways to get data out of the class.
+
+Detail Arrays
+
+```
+[
+	'country'	=> 'US|CA',
+	'observed'	=> true|false,
+	'date'		=> String Value,
+	'desc'		=> String Description
+];
+```
+
+Date Strings
+
+
+## Useful Functions
+
+Get all dates as an array
+
+`->getAsArray()`
+
+Gets only observed bank holidays
+
+`->getObservedAsArray()`
+
+
+### US functions
+
+```
+->getNewYearsDetail() : array
+->newYearsDay() : string
+->getMLKDayDetail() : array
+->martinLutherKingJrDay() : string
+->getPresidentsDayDetail() : array
+->presidentsDay() : string
+->getMemorialDayDetail() : array
+->memorialDay() : string
+->getJuneteenthDetail() : array
+->juneteenth() : string
+->getIndependenceDayDetail() : array
+->independenceDay() : string
+->getLaborDayDetail() : array
+->laborDay() : string
+->getColumbusDayDetail() : array
+->columbusDay() : string
+->getVeteransDayDetail() : array
+->veteransDay() : string
+->getThanksgivingDayDetail() : array
+->thanksgivingDay() : string
+->getChristmasDayDetail() : array
+->christmasDay() : string
+```
+
+## CA Functions
+
+```
+->getNewYearsDayDetail()
+->newYearsDay() : string
+->getGoodFridayDetail()
+->goodFriday() : string
+->getEasterMondayDetail()
+->easterMonday() : string
+->getCivicHolidayDetail()
+->civicHoliday() : string
+->getLaborDayDetail()
+->laborDay() : string
+->getFamilyDayDetail()
+->familyDay() : string
+->getRemembranceDayDetail()
+->remembranceDay() : string
+->getThanksgivingDayDetail()
+->thanksgivingDay() : string
+->getChristmasDayDetail()
+->christmasDay() : string
+->getCanadaDayDetail() : array
+->canadaDay() : string
+->getBoxingDayDetail()
+->boxingDay() : string
+->getVictoriaDayDetail()
+->victoriaDay() : string
+```
