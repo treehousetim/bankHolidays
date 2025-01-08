@@ -3,7 +3,7 @@
 
 ## Current Version
 
-1.0.3
+1.0.4
 
 Bank Holiday Date calculations in PHP for United States of America and Canada.
 
@@ -119,17 +119,16 @@ There are no dependencies, but PHPUnit is installed with composer.
 
 
 
-## Library
-
-## How to use
+## Library - How to use
 
 ### Countries
 
 Instantiate the country class as you need.
 
-```
+```php
 $usa = new \treehousetim\bankHolidays\usa();
 $ca =  new \treehousetim\bankHolidays\canada();
+```
 
 ## Detail Array
 
@@ -137,7 +136,7 @@ There are two ways to get data out of the class.
 
 Detail Arrays
 
-```
+```php
 [
 	'country'	=> 'US|CA',
 	'observed'	=> true|false,
@@ -162,7 +161,7 @@ Gets only observed bank holidays
 
 ### US functions
 
-```
+```php
 ->getNewYearsDetail() : array
 ->newYearsDay() : string
 ->getMLKDayDetail() : array
@@ -189,7 +188,7 @@ Gets only observed bank holidays
 
 ## CA Functions
 
-```
+```php
 ->getNewYearsDayDetail()
 ->newYearsDay() : string
 ->getGoodFridayDetail()
