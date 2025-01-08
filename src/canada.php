@@ -38,6 +38,11 @@ class canada extends holiday
 		];
 	}
 	//------------------------------------------------------------------------
+	public function getNewYearsDetail(): array
+	{
+		return $this->getNewYearsDayDetail();
+	}
+	//------------------------------------------------------------------------
 	public function newYearsDay() : string
 	{
 		return $this->satFriSunMon( $this->year . '/01/01' );
