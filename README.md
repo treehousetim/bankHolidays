@@ -189,7 +189,7 @@ Gets only observed bank holidays
 ## CA Functions
 
 ```php
-->getNewYearsDayDetail()
+->getNewYearsDetail()
 ->newYearsDay() : string
 ->getGoodFridayDetail()
 ->goodFriday() : string
