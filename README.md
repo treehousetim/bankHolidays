@@ -3,7 +3,7 @@
 
 ## Current Version
 
-1.0.2
+1.0.3
 
 Bank Holiday Date calculations in PHP for United States of America and Canada.
 
